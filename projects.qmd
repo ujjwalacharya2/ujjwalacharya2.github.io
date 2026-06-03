@@ -15,7 +15,7 @@ format:
 <div class="section">
   <div class="qmd-grid">
 
-    <a class="qmd-card fade-up" href="https://github.com/ADC-405-S26/prestr" target="_blank">
+    <a class="qmd-card fade-up" href="http://adc-405-s26.github.io/prestr/" target="_blank">
       <div class="qmd-card-top">
         <span class="qmd-badge">R Package</span>
         <span class="qmd-num">01</span>
