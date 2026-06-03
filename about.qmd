@@ -1,5 +1,47 @@
 ---
 title: "About"
+format:
+  html:
+    page-layout: full
 ---
 
-About this site
+```{=html}
+<section class="projects-page-hero">
+  <p class="hero-eyebrow" style="color: var(--accent-light); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+    <span style="display: inline-block; width: 28px; height: 1px; background: var(--accent);"></span>
+    About
+  </p>
+  <h1>A little about me</h1>
+  <p>Data analyst, R enthusiast, and builder of reproducible research.</p>
+</section>
+
+<section class="intro-strip">
+  <div class="intro-grid">
+    <div>
+      <h2>Background</h2>
+      <p>Replace this with your own background. Talk about your education, how you got into data analysis, and what kinds of problems you love solving.</p>
+      <p>This is a great place to mention any publications, courses, or experiences that shaped your analytical approach.</p>
+      <br>
+      <a href="projects.html" class="btn-primary" style="display: inline-flex;">View My Projects →</a>
+    </div>
+    <div>
+      <h2>Skills &amp; Tools</h2>
+      <ul class="tools-list">
+        <li>R / RStudio</li>
+        <li>Quarto / R Markdown</li>
+        <li>ggplot2</li>
+        <li>tidyverse</li>
+        <li>Statistical modeling</li>
+        <li>Data wrangling</li>
+        <li>Reproducible research</li>
+        <li>Data visualization</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span class="footer-brand">Portfolio</span>
+  <span>Built with R &amp; Quarto</span>
+</footer>
+```

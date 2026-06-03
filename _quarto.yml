@@ -1,22 +1,30 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - about.qmd
+    - projects.qmd
+    - projects/poster.Rmd
+    - projects/text-analysis.qmd
 
 website:
-  title: "project"
+  title: "Portfolio"
   navbar:
+    background: dark
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: projects.qmd
+        text: Projects
+    right:
+      - icon: github
+        href: https://github.com
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
-    toc: true
-
-
-
+    toc: false

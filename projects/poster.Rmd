@@ -1,0 +1,254 @@
+---
+title: "50 Years of Data Science"
+author:
+  - name: "Tasnim Ara Siddique"
+    affil: 1
+  - name: "Ujjwal Acharya"
+    affil: 1
+affiliation:
+  - num: 1
+    address: "STAT 405: Advanced Data Computing "
+column_numbers: 3
+output:
+  posterdown::posterdown_html:
+    self_contained: true
+    pandoc_args: --mathjax
+    number_sections: false
+    poster_width: "36in"
+    poster_height: "48in"
+    primary_colour: "#1a2744"
+    secondary_colour: "#c9a227"
+    body_bgcol: "#f8f6f1"
+    body_textcol: "#2c2c2c"
+    body_textsize: "22px"
+    title_textsize: "72pt"
+    titlebox_height: "0%"
+include-after: ""
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r inject-css, echo=FALSE, results='asis'}
+css_lines <- readLines("style.css", warn = FALSE)
+cat("<style>\n", paste(css_lines, collapse = "\n"), "\n</style>", sep = "")
+```
+
+<div class="academic-header">
+
+<h1 class="poster-main-title">50 Years of Data Science</h1>
+<p class="poster-subtitle">David Donoho &nbsp;·&nbsp; Department of Statistics, Stanford University &nbsp;·&nbsp; Vol. 26, No. 4, pp. 745–766</p>
+<p class="poster-authors">Tasnim Ara Siddique &nbsp;·&nbsp; Ujjwal Acharya &nbsp;·&nbsp; CMSC 405: Advanced Data Computing</p>
+</div>
+
+<div class="poster-grid">
+
+<!-- COLUMN 1 -->
+<div class="poster-col">
+
+<div class="poster-section">
+<div class="section-label">Overview</div>
+<div class="section-title">What is this paper about?</div>
+<div class="section-body">
+<p>David Donoho revisits <strong>50 years of debate</strong> since John Tukey's 1962 call to reform statistics. He argues that today's "data science" movement is not new but the field's <strong>true intellectual scope</strong> is still being missed.</p>
+<p>Donoho proposes <strong>Greater Data Science (GDS)</strong>: not just big data + ML, but the full science of learning from data, including a meta-science that studies data analysis itself.</p>
+</div>
+</div>
+
+<div class="quote-box">
+<span class="quote-mark">&ldquo;</span>
+<p>I have come to feel that my central interest is in data analysis… procedures for analyzing data, techniques for interpreting the results… ways of planning the gathering of data…</p>
+<span class="quote-attr">- John Tukey, "The Future of Data Analysis," 1962</span>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Historical Context</div>
+<div class="section-title">50 years of calls to action</div>
+<ul class="timeline">
+<li><span class="year">1962</span><span><span class="dot">●</span> <strong>John Tukey</strong> -"The Future of Data Analysis": data analysis as a new science, broader than mathematical statistics</span></li>
+<li><span class="year">1993</span><span><span class="dot">●</span> <strong>John Chambers</strong> - "Greater or Lesser Statistics": statistics must expand its boundaries or become marginal</span></li>
+<li><span class="year">1997</span><span><span class="dot">●</span> <strong>Jeff Wu</strong> - proposes renaming statistics → "data science" in his Carver Lecture at University of Michigan</span></li>
+<li><span class="year">2001</span><span><span class="dot">●</span> <strong>Bill Cleveland</strong> &amp; <strong>Leo Breiman</strong> - action plans for expanding the field; two modeling cultures identified</span></li>
+<li><span class="year">2015</span><span><span class="dot">●</span> <strong>Donoho</strong> - presented at Tukey Centennial; triggered by U of Michigan's $100M Data Science Initiative</span></li>
+</ul>
+</div>
+
+<div class="poster-section">
+<div class="section-label">The Debate</div>
+<div class="section-title">Data science vs. statistics</div>
+<div class="section-body">
+<p>Donoho dismantles three popular "memes" used to separate data science from statistics , and shows each fails under scrutiny:</p>
+<ul class="debate-list">
+<li><strong>"Big Data"</strong> meme - statistics always dealt with large-scale data; the word "statistics" itself comes from census data</li>
+<li><strong>"Skills"</strong> meme - Hadoop/Spark are organizational coping tools, not deep intellectual advances</li>
+<li><strong>"Jobs"</strong> meme - industry hiring demand does not define or create a new science</li>
+</ul>
+</div>
+</div>
+
+<div class="quote-box">
+<span class="quote-mark">&ldquo;</span>
+<p>Data Scientist (n.): Person who is better at statistics than any software engineer and better at software engineering than any statistician.</p>
+<span class="quote-attr">- popular tech industry quip, cited by Donoho</span>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Simple Methods Often Win</div>
+<div class="section-title">Glamour ≠ performance</div>
+<div class="section-body">
+<p>A key empirical finding: theoretically sophisticated methods frequently <em>fail</em> to outperform simple baselines in real cross-study tests.</p>
+<ul class="evidence-list">
+<li><strong>Hand (2006):</strong> Linear discriminant analysis (Fisher, 1936) achieved 90%+ of achievable improvement on benchmark datasets - despite decades of fancier methods.</li>
+<li><strong>Donoho &amp; Jin (2008):</strong> A dead-simple ±1 weight classifier matched or beat random forests and boosting across standard ML benchmarks.</li>
+<li><strong>Zhao et al. (2014):</strong> The Más-o-Menos classifier matched lasso and ridge across clinical cancer genomics studies.</li>
+</ul>
+<p>The lesson: <strong>cross-study variation</strong>, not algorithmic complexity, drives real-world performance differences.</p>
+</div>
+</div>
+
+</div>
+
+<!-- COLUMN 2  -->
+<div class="poster-col">
+
+<div class="poster-section">
+<div class="section-label">Breiman's Two Cultures</div>
+<div class="section-title">Two ways to learn from data</div>
+<div class="section-body">
+<p>Leo Breiman (2001) identified a fundamental split in how analysts approach data , Donoho argues both belong inside GDS:</p>
+</div>
+<div class="two-cultures">
+<div class="culture-box culture-gen">
+<h4>Generative Modeling</h4>
+<ul>
+<li>Stochastic models that <em>could have</em> generated the data</li>
+<li>Focus on inference &amp; uncertainty</li>
+<li>Traditional academic statistics (~98% of courses in 2001)</li>
+</ul>
+</div>
+<div class="culture-box culture-pred">
+<h4>Predictive Modeling</h4>
+<ul>
+<li>Methods that predict well on a specific dataset</li>
+<li>Accuracy over interpretability</li>
+<li>Machine learning &amp; industrial AI</li>
+</ul>
+</div>
+</div>
+<div class="section-body">
+<p>Donoho: the <strong>Common Task Framework</strong> - shared data + objective leaderboard - is the "secret sauce" behind ML's industrial success, not algorithmic breakthroughs alone.</p>
+</div>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Key Mechanism</div>
+<div class="section-title">The Common Task Framework (CTF)</div>
+<div class="section-body">
+<p>Donoho identifies CTF as the most underappreciated concept in data science , the true engine behind ML progress in Netflix Prize, ImageNet, Kaggle, and DARPA challenges:</p>
+</div>
+<ul class="ctf-list">
+<li><span class="ctf-badge">A</span><span>A <strong>publicly available training dataset</strong> with features and class labels, shared openly with all competitors</span></li>
+<li><span class="ctf-badge">B</span><span>A set of <strong>enrolled competitors</strong> who independently develop prediction rules from the shared data</span></li>
+<li><span class="ctf-badge">C</span><span>An <strong>objective scoring referee</strong> that tests submissions on a sequestered holdout set and reports accuracy automatically</span></li>
+</ul>
+<div class="section-body" style="margin-top:0.5em;">
+<p>Pattern of results: error rates decline by a fixed percentage each year; progress comes from many small improvements; shared data gets reused in unexpected ways.</p>
+</div>
+</div>
+
+<div class="highlight-box">
+<p>Google Translate, smartphone Face ID, and voice assistants all exist because of <strong>decades of CTF competition</strong> - not isolated algorithmic breakthroughs alone.</p>
+</div>
+
+<div class="poster-section">
+<div class="section-label">The Six Divisions</div>
+<div class="section-title">Greater Data Science (GDS)</div>
+<div class="section-body">
+<p>Donoho merges Chambers &amp; Cleveland's frameworks into six divisions of a fully realized data science. Most programs today teach only <strong>GDS5</strong>:</p>
+</div>
+<div class="gds-grid">
+<div class="gds-card gds-1"><strong>GDS 1</strong>Data Gathering, Prep &amp; Exploration - cleaning, wrangling, EDA (~80% of real effort)</div>
+<div class="gds-card gds-2"><strong>GDS 2</strong>Data Representation &amp; Transformation - SQL, NoSQL, Fourier transforms, tidy data</div>
+<div class="gds-card gds-3"><strong>GDS 3</strong>Computing with Data - R, Python, pipelines, clusters, reproducible workflows</div>
+<div class="gds-card gds-4"><strong>GDS 4</strong>Data Visualization &amp; Presentation - EDA plots, dashboards, communicating findings</div>
+<div class="gds-card gds-5"><strong>GDS 5</strong>Data Modeling - generative (statistics) + predictive (ML) cultures</div>
+<div class="gds-card gds-6"><strong>GDS 6</strong>Science about Data Science - meta-analysis, reproducibility, evidence-based methodology</div>
+</div>
+<div class="section-body" style="margin-top:0.6em;">
+<p><strong>~80% of real data science effort</strong> is spent in GDS1 - yet this is the division most neglected in curricula. Students who only ever analyze pre-cooked datasets miss the hardest and most important skills.</p>
+</div>
+</div>
+
+</div>
+
+<!--  COLUMN 3  -->
+<div class="poster-col">
+
+<div class="poster-section">
+<div class="section-label">Key Finding</div>
+<div class="section-title">Science itself becomes data</div>
+<div class="section-body">
+<p>Donoho's most visionary claim: <strong>GDS6, Science about Data Science</strong> , will become the most important frontier as all of science becomes a body of data we can mine and study.</p>
+</div>
+<div class="stat-row">
+<div class="stat-box">
+<span class="stat-num">&gt;1M</span>
+<span class="stat-label">scientific papers published annually in clinical research alone , each a data point about methodology</span>
+</div>
+<div class="stat-box">
+<span class="stat-num">~50%</span>
+<span class="stat-label">of published findings may be incorrect or irreproducible (Ioannidis et al.)</span>
+</div>
+</div>
+<div class="section-body" style="margin-top:0.5em;">
+<p><strong>Cross-study analysis</strong> (Parmigiani et al.): Applying 14 models across 10 independent ovarian cancer datasets (1,251 patients) revealed the best model in the literature was being systematically underused.</p>
+<p><strong>Cross-workflow analysis</strong> (Madigan/OMOP): Across 200M+ patient-years, the choice of analysis workflow alone <em>reverses</em> published conclusions about the same drug.</p>
+</div>
+</div>
+
+<div class="quote-box">
+<span class="quote-mark">&ldquo;</span>
+<p>The really important intellectual event of the next 50 years is not about scaling up , but the emergence of scientific studies of data analysis science-wide.</p>
+<span class="quote-attr">- Donoho (2017), paraphrased</span>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Looking Ahead</div>
+<div class="section-title">Data Science in 2065</div>
+<ul class="future-list">
+<li><span class="future-num">1</span><span><strong>Open science takes over</strong> - code &amp; data sharing become universal; reproducibility enforced by journals and funding agencies</span></li>
+<li><span class="future-num">2</span><span><strong>Science becomes data</strong> - every published result becomes programmatically citable and retrievable; meta-analysis spans all of science</span></li>
+<li><span class="future-num">3</span><span><strong>Empirical validation replaces proof</strong> - method performance validated across entire corpora of real datasets, not under narrow theoretical assumptions</span></li>
+</ul>
+</div>
+
+<div class="highlight-box">
+<p>In 2065, asking "which method is best?" will be answered <strong>empirically across thousands of real studies</strong> , not by mathematical derivation alone.</p>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Significance &amp; Critique</div>
+<div class="section-title">Why this paper matters</div>
+<div class="critique-block"><strong>Strengths:</strong> Synthesizes 50 years of intellectual history into a coherent non-commercial vision; CTF insight is original and well-evidenced; GDS framework is directly actionable for curriculum design.</div>
+<div class="critique-block"><strong>Limitations:</strong> Underplays data engineering (acknowledged in epilogue); written primarily for academic statisticians; GDS vision remains largely aspirational , most programs still teach primarily GDS5.</div>
+<div class="critique-block"><strong>Relevance today:</strong> The reproducibility crisis, open science movement, and dominance of R/Python all directly vindicate Donoho's 2017 predictions.</div>
+</div>
+
+<div class="poster-section">
+<div class="section-label">Course Connection</div>
+<div class="section-title">Why this matters for us</div>
+<div class="section-body">
+<p>This paper directly motivates why we use <strong>R, Quarto, and reproducible workflows</strong> in this course. GDS3 (computing with data) and GDS1 (data preparation and exploration) are the foundations of modern data science practice , exactly what an advanced computing course in R is designed to build.</p>
+<p>Every time we write a reproducible R Markdown document, share code, or wrangle messy data, we are practicing the Greater Data Science that Donoho envisioned.</p>
+</div>
+</div>
+
+<div class="poster-footer">
+<strong>Reference:</strong> Donoho, D. (2017). 50 Years of Data Science. <em>Journal of Computational and Graphical Statistics</em>, 26(4), 745–766. <a href="https://doi.org/10.1080/10618600.2017.1384734" style="color:#c9a227;">doi:10.1080/10618600.2017.1384734</a>
+</div>
+
+</div>
+
+</div>

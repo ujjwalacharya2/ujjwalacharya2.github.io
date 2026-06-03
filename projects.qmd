@@ -1,0 +1,56 @@
+---
+title: "Projects"
+format:
+  html:
+    css: styles.css
+    toc: false
+---
+
+```{=html}
+<div class="projects-page-hero">
+  <h1>Selected Work</h1>
+  <p>A collection of data science and analytical projects spanning R, statistics, and text analysis.</p>
+</div>
+
+<div class="section">
+  <div class="qmd-grid">
+
+    <a class="qmd-card fade-up" href="https://github.com/ADC-405-S26/prestr" target="_blank">
+      <div class="qmd-card-top">
+        <span class="qmd-badge">R Package</span>
+        <span class="qmd-num">01</span>
+      </div>
+      <div class="qmd-title">prestr</div>
+      <div class="qmd-desc">
+        An R package — explore the source code, documentation, and usage on GitHub.
+      </div>
+      <div class="qmd-link">View on GitHub</div>
+    </a>
+
+    <a class="qmd-card fade-up" href="projects/poster.html" target="_blank">
+      <div class="qmd-card-top">
+        <span class="qmd-badge">Poster</span>
+        <span class="qmd-num">02</span>
+      </div>
+      <div class="qmd-title">Poster Presentation</div>
+      <div class="qmd-desc">
+        A research poster rendered from R Markdown, presenting findings and visualizations.
+      </div>
+      <div class="qmd-link">View Poster</div>
+    </a>
+
+    <a class="qmd-card fade-up" href="projects/text-analysis.html" target="_blank">
+      <div class="qmd-card-top">
+        <span class="qmd-badge">Text Analysis</span>
+        <span class="qmd-num">03</span>
+      </div>
+      <div class="qmd-title">Text Analysis</div>
+      <div class="qmd-desc">
+        A deep-dive into text data using tidytext and sentiment analysis techniques in R.
+      </div>
+      <div class="qmd-link">View Analysis</div>
+    </a>
+
+  </div>
+</div>
+```
