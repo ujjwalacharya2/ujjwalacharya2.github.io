@@ -638,5 +638,6 @@ main.content { padding: 0 !important; max-width: 100% !important; }
   .site-footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
 }
 
+
 /* ---- QUARTO FOOTER OVERRIDE ---- */
 #quarto-footer { display: none !important; }

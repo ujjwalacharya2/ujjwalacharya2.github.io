@@ -25,8 +25,9 @@ website:
     right:
       - icon: github
         href: https://github.com/ujjwalacharya2
-      - icon: linkedln
+      - icon: linkedin
         href: https://www.linkedin.com/in/ujjwal-acharya0862/
+        aria-label: LinkedIn
 
 format:
   html:
