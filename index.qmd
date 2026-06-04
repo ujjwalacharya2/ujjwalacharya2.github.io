@@ -10,7 +10,8 @@ format:
   <div class="hero-text">
     <p class="hero-eyebrow">Data Analyst &amp; Researcher</p>
     <h1>Hi, I'm <em>Ujjwal Acharya</em></h1>
-    <p class="hero-desc">I build clean, reproducible analyses and interactive reports with R, Quarto, and a deep curiosity for what the numbers actually say.</p>
+    <p class="hero-desc">A data analyst who got hooked on R and never looked back. I love the moment when a messy dataset starts to make sense, and I care deeply about presenting findings in a way that anyone can understand, not just other analysts.
+Outside of data, you'll find me exploring cities, in a volleyball court, and looking for the story behind the numbers.</p>
     <div class="hero-cta">
       <a href="projects.html" class="btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><polyline points="9 12 11 14 15 10"/></svg>
