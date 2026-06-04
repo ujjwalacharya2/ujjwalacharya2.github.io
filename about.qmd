@@ -11,8 +11,8 @@ format:
     <span style="display: inline-block; width: 28px; height: 1px; background: var(--accent);"></span>
     About
   </p>
-  <h1>A little about me</h1>
-  <p>Data analyst, R enthusiast, and builder of reproducible research.</p>
+  <h1>NICE to MEET YOU</h1>
+  <p>A little about the person behind the analysis.</p>
 </section>
 
 <section class="intro-strip">

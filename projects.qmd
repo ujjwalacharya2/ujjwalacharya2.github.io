@@ -8,8 +8,8 @@ format:
 
 ```{=html}
 <div class="projects-page-hero">
-  <h1>Selected Work</h1>
-  <p>A collection of data science and analytical projects spanning R, statistics, and text analysis.</p>
+  <h1>Featured Projects</h1>
+  <p>A collection of data science and analytical projects spanning R, Qurto, SQL and text analysis.</p>
 </div>
 
 <div class="section">
