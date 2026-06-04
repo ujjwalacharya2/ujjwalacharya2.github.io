@@ -6,7 +6,6 @@ format:
 ---
 
 ```{=html}
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <p class="hero-eyebrow">Data Analyst &amp; Researcher</p>
@@ -22,94 +21,11 @@ format:
   </div>
   <div class="hero-visual">
     <div class="hero-photo-frame">
-      <img
-        src="IMG_8146 2.jpg"
-        alt="Ujjwal Acharya"
-        class="hero-photo"
-      />
+      <img src="IMG_8146 2.jpg" alt="Ujjwal Acharya" class="hero-photo" />
     </div>
   </div>
 </section>
 
-```
 
 
-
-
-```{=html}
-<!-- HERO -->
-<!-- INTRO STRIP -->
-<section class="intro-strip">
-  <div class="intro-grid">
-    <div>
-      <h2>Who I Am</h2>
-      <p>I'm a data analyst passionate about reproducible research and communicating findings clearly. I use R and Quarto to build reports that go beyond static outputs — interactive, readable, and grounded in sound methodology.</p>
-      <p>My work spans statistical analysis, data visualization, and turning messy real-world datasets into clear narratives.</p>
-    </div>
-    <div>
-      <h2>My Toolkit</h2>
-      <ul class="tools-list">
-        <li>R / RStudio</li>
-        <li>Quarto</li>
-        <li>ggplot2</li>
-        <li>tidyverse</li>
-        <li>dplyr / tidyr</li>
-        <li>R Markdown</li>
-        <li>Statistical modeling</li>
-        <li>Data visualization</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED PROJECTS PREVIEW -->
-<section class="section">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card fade-up">
-      <p class="project-num">Project / 001</p>
-      <h3 class="project-title">Add your first QMD project here</h3>
-      <p class="project-desc">Drop your first QMD file into the projects page. This card will showcase your analysis with tags, description, and a link.</p>
-      <div class="project-tags">
-        <span class="project-tag">R</span>
-        <span class="project-tag">ggplot2</span>
-        <span class="project-tag">EDA</span>
-      </div>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-card fade-up">
-      <p class="project-num">Project / 002</p>
-      <h3 class="project-title">Your second analysis project</h3>
-      <p class="project-desc">A placeholder ready for your second QMD file. Each project card links directly to your rendered Quarto document.</p>
-      <div class="project-tags">
-        <span class="project-tag">tidyverse</span>
-        <span class="project-tag">modeling</span>
-      </div>
-      <span class="project-arrow">↗</span>
-    </div>
-    <div class="project-card fade-up">
-      <p class="project-num">Project / 003</p>
-      <h3 class="project-title">Statistical analysis</h3>
-      <p class="project-desc">Awaiting your third QMD file. The projects page links all four together in a clean, scannable grid.</p>
-      <div class="project-tags">
-        <span class="project-tag">statistics</span>
-        <span class="project-tag">Quarto</span>
-      </div>
-      <span class="project-arrow">↗</span>
-    </div>
-  </div>
-  <div style="margin-top: 2.5rem; text-align: center;">
-    <a href="projects.html" class="btn-primary" style="display: inline-flex;">See All Projects →</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-brand">Portfolio</span>
-  <span>Built with R &amp; Quarto</span>
-</footer>
 ```

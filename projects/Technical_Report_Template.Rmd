@@ -1,0 +1,295 @@
+---
+title: "From Test Drive to Test Model: The Science of Car Pricing!"
+author: "Tahana Akram & Ujjwal Acharya"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+# to install additional packages, remove # and run following (you need to install a package only once)
+# install.packages("package name")
+```
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(GGally)
+library(caret)
+library(recipes)
+library(rsample)
+library(rpart)
+library(rpart.plot)
+library(ranger)
+library(e1071)
+library(gbm)
+library(kernlab)
+library(pROC)
+library(vip)
+library(factoextra)
+library(glmnet)
+library(dplyr)
+
+# to load additional packages, remove # and run following
+# library(package name)
+```
+
+
+## Introduction
+
+Write an introductory paragraph here. Delete this sentence in your final report.
+
+If you are exploring/investigating a topic, elaborate on its background here. Delete this sentence in your final report.
+
+
+Ever wondered if you're overpaying for a car or selling it for less than it’s worth? With prices changing all the time, figuring out the "right" price can feel like a guessing game. But what if we could take the guesswork out of it? That’s exactly what we’re doing,using machine learning to make car pricing fair and competitive. By analyzing different car features and applying models like linear regression and decision trees, we’re building a smart system that helps buyers get a fair deal and sellers stay competitive. Think of it as a price-check tool on steroids—driven by data, not just hunches. Buckle up, because we’re about to take car pricing to the next level!
+
+
+## Data
+
+```{r}
+# load your data here
+
+CarPrice <- read.csv("CarPrice_Assignment.csv") 
+
+# Remove variables that we don't need to predict price
+CarPrice1 <- CarPrice %>%
+  select(-car_ID, -CarName, -symboling)
+
+
+
+
+```
+
+Write data description (source, background, context, variable descriptions, etc.) here. Delete this sentence in your final report.
+
+The CarPrice_Assignment.csv dataset from Kaggle is commonly used for predicting car prices. It includes various car features like specifications and categories, helping to analyze how different factors affect pricing.
+This dataset provides detailed information on different car types in the U.S. market. Studying these features helps in setting fair prices, improving car designs, and making better business decisions.
+
+Variable Descriptions:
+The dataset includes the following features:
+
+car_ID: Unique car identifier.
+symboling: Insurance risk rating (-3 to +3).
+CarName: Car’s brand and model.
+fueltype: Fuel type (gas/diesel).
+aspiration: Engine aspiration (standard/turbo).
+doornumber: Number of doors (two/four).
+carbody: Body style (sedan, hatchback, etc.).
+drivewheel: Drive type (FWD, RWD, etc.).
+enginelocation: Engine placement (front/rear).
+wheelbase: Distance between front and rear wheels (inches).
+carlength / carwidth / carheight: Car dimensions (inches).
+curbweight: Car weight without passengers (lbs).
+enginetype: Engine category (OHC, DOHC, etc.).
+cylindernumber: Number of engine cylinders.
+enginesize: Engine size (cubic inches).
+fuelsystem: Fuel system type (MPFI, 2BBL, etc.).
+boreratio: Bore-to-stroke ratio.
+stroke: Piston stroke length (inches).
+compressionratio: Compression ratio of the engine.
+horsepower: Engine power (HP).
+peakrpm: RPM at max horsepower.
+citympg / highwaympg: Fuel efficiency (MPG).
+price: Car price (USD).
+
+
+## Analysis/Methodology
+
+Write about your analysis (data exploration, data splitting, feature engineering, CV) here. Delete this sentence in your final report.
+
+If you are exploring/investigating a topic, demonstrate how it works here. Delete this sentence in your final report.
+
+Copy the code chunk as many times as you want.
+
+
+
+Dataset Overview
+The dataset consists of 205 observations and 19 variables related to car specifications and pricing.
+The response variable (outcome) for this analysis is price.
+The dataset includes a mix of categorical (e.g., fuel type, drive wheel, engine type) and numerical (e.g., horsepower, city-mpg, engine size) features
+
+Data Exploration
+Variable Types: The dataset contains both nominal categorical variables (e.g., fueltype, aspiration, carbody) and ordinal categorical variables (cylindernumber, converted into an ordered factor).
+Missing Data: No missing values
+
+Feature Engineering
+Categorical Encoding: The dataset involves transforming categorical variables into appropriate formats
+Some nominal categorical predictors have been explored (fueltype, aspiration, carbody, drivewheel, enginetype).
+
+ Data Splitting
+The dataset is split into training (80%) and test (20%) sets to ensure the model is evaluated on unseen data.
+A stratified split was applied based on the response variable (price) to maintain data distribution across train and test sets.
+
+
+
+```{r}
+# write R codes here 
+set.seed(208)
+
+glimpse(CarPrice1)
+summary(CarPrice1)
+
+# Convert categorical variables to factors
+Car_Price <- CarPrice1 %>%
+  mutate(
+    fueltype = as.factor(fueltype),
+    aspiration = as.factor(aspiration),
+    carbody = as.factor(carbody),
+    drivewheel = as.factor(drivewheel),
+    enginetype = as.factor(enginetype),
+    cylindernumber = as.factor(cylindernumber)
+  )
+
+glimpse(Car_Price)
+
+# Type of features:
+# Numerical features - wheelbase, carlength, carwidth, carheight, curbweight, enginesize, boreratio, stroke, compressionratio, horsepower, citympg, highwaympg, price (<dbl>, <int>)
+# Categorical features - fueltype, aspiration, carbody, drivewheel, enginetype, cylindernumber (<chr>, <fct>)
+
+```
+
+```{r}
+# write R codes here 
+set.seed(208)
+
+sum(is.na(Car_Price)) 
+# 0 missing entries
+
+```
+```{r}
+# write R codes here 
+set.seed(208)
+
+nearZeroVar(Car_Price, saveMetrics = TRUE)
+
+
+
+```
+
+```{r}
+# write R codes here 
+set.seed(208)
+# investigate nominal categorical predictors 
+
+Car_Price %>% count(carbody) %>% arrange(n)
+Car_Price %>% count(enginetype) %>% arrange(n)
+
+
+```
+````{r}
+# write R codes here 
+set.seed(208)
+# split the data 80-20
+
+# Create train-test split (80-20)
+train_index <- createDataPartition(Car_Price$price, p = 0.8, list = FALSE)
+trainData <- Car_Price[train_index, ] #training set
+testData <- Car_Price[-train_index, ] #test set
+
+# View split
+dim(trainData)
+dim(testData)
+
+
+````
+
+
+````{r}
+# write R codes here 
+set.seed(208)
+# create recipe
+Car_recipe <- recipe(formula = price ~ ., data = trainData) 
+
+
+````
+````{r}
+# write R codes here 
+set.seed(208)
+#blueprint
+
+blueprint <- Car_recipe %>% 
+  step_other(enginetype, threshold = 0.01, other = "other") %>%
+  step_center(all_numeric_predictors()) %>%                            
+  step_scale(all_numeric_predictors()) %>%                            
+  step_dummy(all_nominal_predictors(), one_hot = FALSE)  
+
+prepare <- prep(blueprint, data = Train)   
+
+
+````
+
+````{r}
+# write R codes here 
+set.seed(208)
+# apply the blueprint to training data for building final/optimal model
+baked_train <- bake(prepare, new_data = trainData)
+
+# apply the blueprint to test data for future use
+baked_test <- bake(prepare, new_data = testData) 
+````
+
+````{r}
+# write R codes here 
+set.seed(208)
+
+# define CV specifications
+
+cv_specs <- trainControl(method = "repeatedcv",    
+                         number = 5,              
+                         repeats = 1) 
+
+
+````
+
+````{r}
+# write R codes here 
+set.seed(208)
+
+
+
+````
+
+````{r}
+# write R codes here 
+set.seed(208)
+
+
+````
+
+````{r}
+# write R codes here 
+set.seed(208)
+
+````
+## Results
+
+Display and interpret your CV results here - optimal metric values (RMSE, Accuracy, Sensitivity, Specificity, etc), optimal hyperparameter values, choice of final model, test set error of final model. Delete this sentence in your final report.
+
+Use the following table to display model training results during CV.
+
+| Technique     | Optimal Metric | Optimal Hyperparameters |
+| ------------- | ------------- | ----------------------- |
+|  |  |  | 
+|  |  |  |
+|  |  |  |
+|  |  |  | 
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
+
+Copy the code chunk as many times as you want.
+
+```{r}
+# write R codes here
+set.seed(208)
+
+
+```
+
+
+## Conclusion
+
+Write a conclusion here. Delete this sentence in your final report.

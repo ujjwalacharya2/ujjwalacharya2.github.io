@@ -6,7 +6,10 @@ project:
     - about.qmd
     - projects.qmd
     - projects/poster.Rmd
+    - projects/Technical_Report_Template.md
     - projects/text-analysis.qmd
+    - projects/Project_2_Template.qmd
+    
 
 website:
   title: "Portfolio"
@@ -21,7 +24,9 @@ website:
         text: Projects
     right:
       - icon: github
-        href: https://github.com
+        href: https://github.com/ujjwalacharya2
+      - icon: linkedln
+        href: https://www.linkedin.com/in/ujjwal-acharya0862/
 
 format:
   html:

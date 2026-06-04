@@ -24,7 +24,7 @@ format:
       <div class="qmd-desc">
         An R package — explore the source code, documentation, and usage on GitHub.
       </div>
-      <div class="qmd-link">View on GitHub</div>
+      <div class="qmd-link">View Package</div>
     </a>
 
     <a class="qmd-card fade-up" href="projects/poster.html" target="_blank">
@@ -49,6 +49,30 @@ format:
         A deep-dive into text data using tidytext and sentiment analysis techniques in R.
       </div>
       <div class="qmd-link">View Analysis</div>
+    </a>
+
+    <a class="qmd-card fade-up" href="projects/Technical_Report_Template.html" target="_blank">
+      <div class="qmd-card-top">
+        <span class="qmd-badge">Technical Report</span>
+        <span class="qmd-num">04</span>
+      </div>
+      <div class="qmd-title">From Test Drive to Test Model: The Science of Car Pricing!</div>
+      <div class="qmd-desc">
+        A technical report exploring the data science behind car price prediction and modeling.
+      </div>
+      <div class="qmd-link">View Report</div>
+    </a>
+
+    <a class="qmd-card fade-up" href="projects/Project_2_Template.html" target="_blank">
+      <div class="qmd-card-top">
+        <span class="qmd-badge">SQL & DuckDB</span>
+        <span class="qmd-num">05</span>
+      </div>
+      <div class="qmd-title">Navigating New York: A Data-Driven Look at Transit, Safety, and Neighborhoods</div>
+      <div class="qmd-desc">
+        A relational database analysis of NYC transit accessibility, traffic accidents, and neighborhood demographics using DuckDB and SQL.
+      </div>
+      <div class="qmd-link">View Project</div>
     </a>
 
   </div>
